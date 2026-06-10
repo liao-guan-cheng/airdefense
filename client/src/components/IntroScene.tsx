@@ -55,7 +55,7 @@ const IntroScene: React.FC = () => {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url('/manus-storage/game-background-intro_c3486aef.png')`,
+          backgroundImage: `url('/bg-intro.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
