@@ -1,0 +1,275 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: 'Noto Sans TC', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+:root {
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.5 0.2 260);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --chart-1: oklch(0.7 0.15 260);
+  --chart-2: oklch(0.55 0.2 260);
+  --chart-3: oklch(0.45 0.18 260);
+  --chart-4: oklch(0.35 0.15 260);
+  --chart-5: oklch(0.25 0.1 260);
+  --radius: 0.75rem;
+  --background: oklch(0.12 0.02 260);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.16 0.025 260);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.16 0.025 260);
+  --popover-foreground: oklch(0.95 0 0);
+  --secondary: oklch(0.2 0.03 260);
+  --secondary-foreground: oklch(0.85 0 0);
+  --muted: oklch(0.22 0.02 260);
+  --muted-foreground: oklch(0.65 0.02 260);
+  --accent: oklch(0.22 0.03 260);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.04 260);
+  --input: oklch(0.25 0.03 260);
+  --ring: oklch(0.6 0.2 260);
+  --sidebar: oklch(0.14 0.02 260);
+  --sidebar-foreground: oklch(0.9 0 0);
+  --sidebar-accent: oklch(0.2 0.03 260);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.3 0.04 260);
+  --sidebar-ring: oklch(0.6 0.2 260);
+}
+
+.dark {
+  --primary: oklch(0.45 0.18 260);
+  --primary-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.5 0.2 260);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --background: oklch(0.12 0.02 260);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.16 0.025 260);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.16 0.025 260);
+  --popover-foreground: oklch(0.95 0 0);
+  --secondary: oklch(0.2 0.03 260);
+  --secondary-foreground: oklch(0.85 0 0);
+  --muted: oklch(0.22 0.02 260);
+  --muted-foreground: oklch(0.65 0.02 260);
+  --accent: oklch(0.22 0.03 260);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.04 260);
+  --input: oklch(0.25 0.03 260);
+  --ring: oklch(0.6 0.2 260);
+  --chart-1: oklch(0.7 0.15 260);
+  --chart-2: oklch(0.55 0.2 260);
+  --chart-3: oklch(0.45 0.18 260);
+  --chart-4: oklch(0.35 0.15 260);
+  --chart-5: oklch(0.25 0.1 260);
+  --sidebar: oklch(0.14 0.02 260);
+  --sidebar-foreground: oklch(0.9 0 0);
+  --sidebar-accent: oklch(0.2 0.03 260);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.3 0.04 260);
+  --sidebar-ring: oklch(0.6 0.2 260);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+/* 遊戲專用動畫 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.3); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes text-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(250, 204, 21, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(250, 204, 21, 0.8), 0 0 40px rgba(250, 204, 21, 0.4); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-radar {
+  animation: radar-sweep 4s linear infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+/* 玻璃效果 */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.glass-panel-light {
+  background: rgba(30, 58, 138, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+}
+
+/* 霓虹邊框效果 */
+.neon-border {
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5),
+              inset 0 0 5px rgba(59, 130, 246, 0.1);
+}
+
+.neon-border-gold {
+  box-shadow: 0 0 5px rgba(250, 204, 21, 0.5),
+              inset 0 0 5px rgba(250, 204, 21, 0.1);
+}
+
+/* 粒子背景 */
+.particle-bg {
+  background-image: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(250, 204, 21, 0.03) 0%, transparent 50%);
+}
+
+/* 選項按鈕hover效果 */
+.option-btn {
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.option-btn:hover:not(:disabled) {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+.option-btn:active:not(:disabled) {
+  transform: translateX(2px) scale(0.98);
+}
+
+/* 螢幕震動效果 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  10% { transform: translateX(-4px) translateY(2px); }
+  20% { transform: translateX(6px) translateY(-3px); }
+  30% { transform: translateX(-5px) translateY(1px); }
+  40% { transform: translateX(4px) translateY(-2px); }
+  50% { transform: translateX(-3px) translateY(3px); }
+  60% { transform: translateX(5px) translateY(-1px); }
+  70% { transform: translateX(-4px) translateY(2px); }
+  80% { transform: translateX(3px) translateY(-2px); }
+  90% { transform: translateX(-2px) translateY(1px); }
+}
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
