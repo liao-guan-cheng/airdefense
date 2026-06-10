@@ -14,7 +14,7 @@ const Header: React.FC = () => {
           {/* 左側：臺南市政府警察局Logo */}
           <div className="flex items-center gap-2 sm:gap-3">
             <img
-              src="/logo.png"
+              src="/__manus__/logo.png"
               alt="臺南市政府警察局新營分局"
               className="h-7 sm:h-10 md:h-12 object-contain"
             />
