@@ -7,7 +7,7 @@ import { addToLeaderboard } from '@/lib/leaderboard';
 import Header from './Header';
 
 const GUARDIAN_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663579132777/FbXy3vn6WfkCXwCrMUv9po/beyblade-guardian-new-2divrVh2tQ6XvR4F6zQEX3.webp';
-const BATTLE_VIDEO = '/manus-storage/battle-video_c7dacaf1.mp4';
+const BATTLE_VIDEO = '/__manus__/battle.mp4';
 const LOGO_IMG = '/__manus__/logo.png';
 
 /**
