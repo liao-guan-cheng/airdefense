@@ -274,107 +274,52 @@
   animation: shake 0.4s ease-in-out;
 }
 
+/* ==========================================================================
+   手機版 RWD 精準微調（只動答題與選關，絕不影響戰鬥畫面）
+   ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. 鎖死手機螢幕高度，禁止全站上下滑動 */
-  html, body, #root, .particle-bg, [class*="min-h-screen"] {
-    height: 100vh !important;
-    height: 100dvh !important;
-    overflow: hidden !important;
-    position: relative;
+  /* 1. 允許手機版正常滾動，這樣大字體時，稍微滑一下就能點到，絕對不會卡死或消失 */
+  html, body, #root {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
   }
 
-  /* 2. 聲音按鈕強發配邊疆：移到網頁最右上角，絕對不擋任何按鈕 */
-  [class*="SoundToggle"], .sound-toggle, button:has(svg) {
+  /* 2. 只把聲音按鈕移到右上角，並縮小尺寸，確保任何畫面都不擋路 */
+  [class*="SoundToggle"], .sound-toggle, button:has(svg):has(path[d*="M11"]) {
     bottom: auto !important;
     top: 12px !important;
     right: 12px !important;
-    width: 36px !important;
-    height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
     padding: 0 !important;
     z-index: 999 !important;
-    position: absolute !important;
+    position: fixed !important;
   }
 
-  /* 3. 全站大字體優化 */
-  .text-base, .text-sm, p, span, label, .option-btn {
-    font-size: 1.05rem !important;
-    line-height: 1.4 !important;
+  /* 3. 手機版字體適度放大（既能看清，又不會撐爆卡片） */
+  .text-base, .text-sm, p, span, label {
+    font-size: 1.1rem !important;
   }
   h1, h2, h3, .text-xl, .text-lg {
-    font-size: 1.25rem !important;
-    font-weight: 700 !important;
+    font-size: 1.3rem !important;
   }
 
-  /* 4. 修正【輸入姓名畫面 (image_4.png)】 */
-  /* 大幅縮小警察圖片，為中下方騰出大量置中空間 */
-  img[src*="police-npc"], img[alt*="警察"], .animate-float {
-    width: 80px !important;
-    height: 80px !important;
-    margin-bottom: 0.1rem !important;
-  }
-  /* 強制覆蓋：讓中央彈性盒模型排版放棄拉伸，真正垂直居中 */
-  .relative.z-10.flex.flex-col.items-center, [class*="min-h-screen"].flex.flex-col {
-    min-height: unset !important;
-    height: 100% !important;
-    justify-content: center !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
-  }
-  /* 稍微收緊姓名對話框的內襯 */
-  .glass-panel.rounded-lg.sm\:rounded-xl {
-    padding: 1rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* 5. 修正【選擇主題畫面 (image_5.png)】：強制三張卡片擠進同一個螢幕 */
-  .tracking-tight, .tracking-widest {
-    margin-top: 0.1rem !important;
-    margin-bottom: 0.1rem !important;
-  }
-  /* 縮減卡片外層的縱向間距（原本可能被 space-y-4 或 grid gap 卡到） */
-  [class*="ChallengeSelect"], .space-y-4, .grid, .gap-4 {
-    gap: 0.35rem !important;
-    margin-top: 0.1rem !important;
-    margin-bottom: 0.1rem !important;
-  }
-  /* 讓三張卡片的高度縮扁 */
-  .glass-panel.rounded-lg, .glass-panel-light, [class*="glass-panel"] {
-    padding: 0.45rem !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-  /* 縮小卡片左側陀螺零件的圖片大小 */
-  img[src*="cloudfront"], .w-24.h-24, [class*="w-24"] {
-    width: 45px !important;
-    height: 45px !important;
-  }
-  /* 壓縮選關按鈕高度 */
-  .glass-panel button, [class*="bg-primary"] {
-    padding-top: 0.35rem !important;
-    padding-bottom: 0.35rem !important;
-    font-size: 0.95rem !important;
-    margin-top: 0.2rem !important;
-  }
-
-  /* 6. 修正【答題畫面 (image_6.png)】：下一題免滾動條 */
-  .mb-6, .my-6, .flex.justify-between.items-center, [class*="mb-"] {
-    margin-top: 0.15rem !important;
-    margin-bottom: 0.15rem !important;
-  }
-  .quiz-container .glass-panel, .quiz-container .p-6, [class*="quiz"] .glass-panel {
-    padding: 0.5rem !important;
-  }
+  /* 4. 針對【答題畫面】微調：壓縮選項間距，讓「下一題」按鈕往上浮 */
+  /* 只針對 option-btn（答題按鈕）進行高度壓縮 */
   .option-btn {
-    padding-top: 0.4rem !important;
-    padding-bottom: 0.4rem !important;
-    margin-bottom: 0.25rem !important;
-    font-size: 1rem !important;
-  }
-  /* 讓「下一題」按鈕高度縮減，完美浮在手機鍵盤與網址列上方 */
-  .quiz-container button, [class*="quiz"] button {
-    padding-top: 0.45rem !important;
-    padding-bottom: 0.45rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0.4rem !important;
     font-size: 1.05rem !important;
-    margin-top: 0.2rem !important;
+    width: 100% !important;
+  }
+
+  /* 5. 針對【選擇主題關卡畫面】微調：縮小陀螺圖片，釋放空間 */
+  /* 縮小三個關卡卡片裡面的陀螺零件預覽圖，讓第三個關卡直接露出來 */
+  .challenge-select-container img, 
+  img[alt*="環"], img[alt*="輪盤"], img[alt*="軸底"] {
+    width: 60px !important;
+    height: 60px !important;
   }
 }
