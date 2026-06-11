@@ -289,7 +289,7 @@ const ChallengeSelect: React.FC = () => {
             <div className="glass-panel rounded-xl p-4 sm:p-6 text-center neon-border-gold">
               <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">⚡</div>
               <p className="text-white text-base sm:text-lg font-bold mb-1">
-                恭喜！你已收集所有零件！
+                恭喜 你已收集所有零件！
               </p>
               <p className="text-blue-200/80 text-xs sm:text-sm">
                 準備進入陀螺組裝階段...
