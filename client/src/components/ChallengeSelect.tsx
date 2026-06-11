@@ -125,7 +125,7 @@ const ChallengeSelect: React.FC = () => {
         </motion.div>
 
         {/* 挑戰卡片 - 手機上使用水平滑動或垂直堆疊 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 sm:gap-5 md:gap-6 w-full max-w-5xl" style={{ gap: window.innerWidth < 640 ? '6px' : undefined }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 sm:gap-5 md:gap-6 w-full max-w-5xl" style={{ gap: window.innerWidth < 640 ? '6px' : undefined, flex: 1, overflowY: window.innerWidth < 640 ? 'auto' : 'visible', maxHeight: window.innerWidth < 640 ? '60vh' : 'none', paddingBottom: window.innerWidth < 640 ? '20px' : '0px' }}>
           {challenges.map((challenge, index) => {
             const isCompleted = gameState.completedChallenges.has(challenge.id as any);
 
