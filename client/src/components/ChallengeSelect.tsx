@@ -73,9 +73,10 @@ const ChallengeSelect: React.FC = () => {
       </div>
 
       {/* 主要內容 */}
-      <div className="relative z-10 w-full h-screen h-[100dvh] flex flex-col items-center justify-between px-3 sm:px-4 pt-14 pb-4 overflow-y-auto overflow-x-hidden">
-        {/* 標題區 */}
-        <motion.div
+      <div 
+        className="relative z-10 w-full h-screen h-[100dvh] flex flex-col items-center px-3 sm:px-4 pt-28 pb-32 overflow-y-auto overflow-x-hidden"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -125,7 +126,7 @@ const ChallengeSelect: React.FC = () => {
         </motion.div>
 
         {/* 挑戰卡片 - 手機上使用水平滑動或垂直堆疊 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 sm:gap-5 md:gap-6 w-full max-w-5xl" style={{ gap: window.innerWidth < 640 ? '6px' : undefined, overflowY: window.innerWidth < 640 ? 'auto' : 'visible', overflowX: 'hidden' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5 md:gap-6 w-full max-w-5xl mt-2">
           {challenges.map((challenge, index) => {
             const isCompleted = gameState.completedChallenges.has(challenge.id as any);
 
@@ -163,12 +164,12 @@ const ChallengeSelect: React.FC = () => {
 
                   {/* 手機版：水平佈局（圖片+文字並排） */}
                   <div className="flex sm:hidden items-center gap-3">
-                    {/* 零件圖片 - 手機版較小 */}
-                    <div className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden ${challenge.bgAccent}`}>
+                    {/* 零件圖片 - 手機版強制固定大小 */}
+                    <div className={`relative w-24 h-24 flex-none flex items-center justify-center rounded-lg overflow-hidden ${challenge.bgAccent}`}>
                       <img
                         src={challenge.rewardImg}
                         alt={challenge.reward}
-                        className="w-full h-full object-contain p-1.5 drop-shadow-lg"
+                        className="w-4/5 h-4/5 object-contain drop-shadow-lg"
                       />
                       {isCompleted && (
                         <div className="absolute inset-0 bg-green-500/10 flex items-center justify-center">
