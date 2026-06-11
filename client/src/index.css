@@ -338,11 +338,29 @@
   }
 
   /* ==========================================
-     5. 保留你原本的設定：【選擇主題關卡畫面】縮小陀螺圖片
+     5. 針對【選擇主題關卡畫面】細緻縮小，強迫第三個關卡現身
      ========================================== */
+  /* 縮小卡片裡的陀螺圖片（從原本的 60px 縮小到 46px，省下大量高度） */
   .challenge-select-container img, 
   img[alt*="環"], img[alt*="輪盤"], img[alt*="軸底"] {
-    width: 60px !important;
-    height: 60px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  /* 縮小選關畫面的大標題與卡片 Padding，讓版面更緊湊 */
+  .challenge-select-container h2, [class*="ChallengeSelect"] h2 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+  .challenge-select-container .glass-panel, [class*="ChallengeSelect"] .glass-panel {
+    padding: 0.4rem !important; /* 卡片不要那麼肥 */
+    margin-bottom: 0.2rem !important;
+  }
+
+  /* 縮小卡片內部「開始挑戰」按鈕的高度，把空間還給第三個卡片 */
+  .challenge-select-container button {
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
+    font-size: 0.95rem !important;
   }
 }
