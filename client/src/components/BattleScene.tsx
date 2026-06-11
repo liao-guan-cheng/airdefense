@@ -198,7 +198,8 @@ const BattleScene: React.FC = () => {
             src={BATTLE_VIDEO}
             onEnded={handleVideoEnd}
             playsInline
-            muted={false}
+            autoPlay
+            muted
             className="w-full h-full object-contain"
             style={{ maxHeight: '100vh' }}
           />
