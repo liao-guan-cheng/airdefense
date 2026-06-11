@@ -348,4 +348,23 @@
     margin-top: 0.25rem !important;
     margin-bottom: 0.25rem !important;
   }
+
+  .fixed.bottom-4.right-4, 
+  button:has(svg[class*="lucide-volume"]), 
+  button:has(svg[class*="lucide-speaker"]) {
+    position: fixed !important;
+    bottom: 16px !important; /* 固定在右下角 */
+    right: 16px !important;  /* 固定在右下角 */
+    left: auto !important;
+    top: auto !important;
+    width: 48px !important;  /* 強制鎖定寬度，不讓它變成長條 */
+    height: 48px !important; /* 強制鎖定高度 */
+    border-radius: 9999px !important; /* 強制變回圓圈 */
+    padding: 0 !important;   /* 清除多餘擠壓 */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 50 !important;  /* 讓它飄在最上層 */
+    margin: 0 !important;
+  }
 }
