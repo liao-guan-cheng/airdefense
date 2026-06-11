@@ -404,18 +404,6 @@ const BattleScene: React.FC = () => {
                 </Button>
 
                 <Button
-                  onClick={() => setPhase('leaderboard')}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3.5 sm:py-5 rounded-lg sm:rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-200 active:scale-[0.97] text-sm sm:text-base"
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="sm:w-[18px] sm:h-[18px]">
-                      <path d="M12 15l-2 5l9-13H10l2-5L3 15h9z" />
-                    </svg>
-                    查看排行榜
-                  </span>
-                </Button>
-
-                <Button
                   onClick={resetGame}
                   variant="outline"
                   className="w-full border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white font-medium py-3.5 sm:py-5 rounded-lg sm:rounded-xl transition-all duration-200 text-sm sm:text-base"
