@@ -275,55 +275,77 @@
 }
 
 /* ==========================================================================
-   手機版滿版（不需上下滑動）與字體放大優化
+   手機版彈性滿版（防破版、防滾動）與字體放大安全優化方案
    ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. 強迫手機版視窗高度死鎖在一個螢幕內，徹底封鎖上下滾動條 */
-  html, body, #root, .particle-bg {
+  /* 1. 安全版手機螢幕死鎖：使用彈性佈局，確保所有元件內縮在一個螢幕內，絕不溢出 */
+  html, body, #root {
     height: 100vh !important;
     height: 100dvh !important;
     overflow: hidden !important;
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* 2. 強迫題目、選項與各式文字字體放大，方便民眾與長官閱讀 */
-  .text-base, .text-sm, p, span, label, .option-btn {
-    font-size: 1.15rem !important; /* 基礎文字放大約 20% */
-    line-height: 1.5 !important;
+  /* 修正內容殼，強迫其高度吃滿但絕不長出滾動條 */
+  .relative.z-10.min-h-screen,
+  .relative.z-10.w-full {
+    min-height: unset !important;
+    height: 100% !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; /* 強迫上中下元件乖乖在畫面內排好 */
+    padding-top: 4.5rem !important; /* 留位置給頂部的台南市警察局 Header */
+    padding-bottom: 1.5rem !important;
   }
-  
-  /* 標題與大字同步加大，並確保寬度不會撐破螢幕 */
-  h1, h2, h3, .text-xl, .text-lg {
-    font-size: 1.4rem !important;
-    font-weight: 700 !important;
+
+  /* 2. 強迫題目、選項與各式文字字體放大，方便長官與民眾閱讀 */
+  .text-base, .text-sm, p, span, label, .option-btn {
+    font-size: 1.15rem !important;
     line-height: 1.4 !important;
   }
+  
+  /* 標題與大字同步加大 */
+  h1, h2, h3, .text-xl, .text-lg {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
 
-  /* 3. 微調內襯（Padding）與間距（Gap），確保所有大字元件在手機螢幕內放得下 */
+  /* 3. 大幅縮減卡片內襯與元件間距，幫大字體挪出螢幕空間 */
   .p-6, .p-4, .card-content, .glass-panel, .glass-panel-light {
     padding: 0.65rem !important;
   }
   
   .space-y-4 > * + * {
-    margin-top: 0.45rem !important;
+    margin-top: 0.35rem !important;
   }
   
   .gap-4, .gap-6 {
-    gap: 0.5rem !important;
+    gap: 0.4rem !important;
   }
 
-  /* 4. 加大選項按鈕的高度與點擊範圍，更好按、字也更清楚 */
+  /* 4. 加大選項按鈕的高度，更好點擊，並限制最大高度防衝出螢幕 */
   .option-btn, button {
-    padding-top: 0.6rem !important;
-    padding-bottom: 0.6rem !important;
-    margin-bottom: 0.4rem !important;
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+    margin-bottom: 0.35rem !important;
     font-size: 1.1rem !important;
     width: 100% !important;
   }
   
-  /* 調整計分板或輔助元件的大小，挪出空間給題目 */
-  .mb-6, .my-6 {
-    margin-top: 0.4rem !important;
-    margin-bottom: 0.4rem !important;
+  /* 縮小非核心裝飾物（如NPC警察圖片）的尺寸，騰出空間給大文字與按鈕 */
+  img[alt="警察NPC"] {
+    width: 110px !important;
+    height: 110px !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .mb-6, .my-6, .mb-4, .mb-8 {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
   }
 }
