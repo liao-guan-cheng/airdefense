@@ -73,7 +73,7 @@ const ChallengeSelect: React.FC = () => {
       </div>
 
       {/* 主要內容 */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center px-3 sm:px-4 pt-18 sm:pt-24 pb-6 sm:pb-12">
+      <div className="relative z-10 w-full h-screen h-[100dvh] flex flex-col items-center justify-between px-3 sm:px-4 pt-14 pb-4 overflow-hidden">
         {/* 標題區 */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -125,7 +125,7 @@ const ChallengeSelect: React.FC = () => {
         </motion.div>
 
         {/* 挑戰卡片 - 手機上使用水平滑動或垂直堆疊 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 sm:gap-5 md:gap-6 w-full max-w-5xl" style={{ gap: window.innerWidth < 640 ? '6px' : undefined }}>
           {challenges.map((challenge, index) => {
             const isCompleted = gameState.completedChallenges.has(challenge.id as any);
 
