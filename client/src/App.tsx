@@ -9,7 +9,6 @@ import ChallengeSelect from "./components/ChallengeSelect";
 import QuizScene from "./components/QuizScene";
 import AssemblyScene from "./components/AssemblyScene";
 import BattleScene from "./components/BattleScene";
-import LeaderboardScene from "./components/LeaderboardScene";
 import SoundToggle from "./components/SoundToggle";
 
 
@@ -30,8 +29,6 @@ function GameRouter() {
     case 'battle':
     case 'victory':
       return <BattleScene />;
-    case 'leaderboard':
-      return <LeaderboardScene />;
     default:
       return <IntroScene />;
   }
