@@ -274,18 +274,25 @@
   animation: shake 0.4s ease-in-out;
 }
 
-/* ==========================================================================
-   手機版 RWD 精準微調（只動答題與選關，絕不影響戰鬥畫面）
-   ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. 允許手機版正常滾動，這樣大字體時，稍微滑一下就能點到，絕對不會卡死或消失 */
-  html, body, #root {
-    height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: auto !important;
+  /* ==========================================
+     1. 【終極修正】強制鎖死全螢幕高度，殺死灰色長滾輪
+     ========================================== */
+  html, body, #root, .min-h-screen, [className*="min-h-screen"] {
+    height: 100vh !important;
+    height: 100dvh !important; /* 支援手機動態工具列 */
+    min-height: unset !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important; /* 徹底拔除全網頁的灰色大滾輪 */
+    position: fixed !important;
+    width: 100% !important;
+    left: 0;
+    top: 0;
   }
 
-  /* 2. 只把聲音按鈕移到右上角，並縮小尺寸，確保任何畫面都不擋路 */
+  /* ==========================================
+     2. 保留你原本的設定：聲音按鈕移到右上角
+     ========================================== */
   [class*="SoundToggle"], .sound-toggle, button:has(svg):has(path[d*="M11"]) {
     bottom: auto !important;
     top: 12px !important;
@@ -297,7 +304,9 @@
     position: fixed !important;
   }
 
-  /* 3. 手機版字體適度放大（既能看清，又不會撐爆卡片） */
+  /* ==========================================
+     3. 保留你原本的設定：手機版字體適度放大
+     ========================================== */
   .text-base, .text-sm, p, span, label {
     font-size: 1.1rem !important;
   }
@@ -305,8 +314,21 @@
     font-size: 1.3rem !important;
   }
 
-  /* 4. 針對【答題畫面】微調：壓縮選項間距，讓「下一題」按鈕往上浮 */
-  /* 只針對 option-btn（答題按鈕）進行高度壓縮 */
+  /* ==========================================
+     4. 保留並優化：【答題畫面】與【卡片內部】微調
+     ========================================== */
+  /* 限制卡片最高只能佔螢幕的 80%，如果真的超出版面，只允許卡片內部微微滾動，網頁絕對不溢出 */
+  .quiz-container, .glass-panel, [class*="quiz"] .glass-panel {
+    max-height: 80vh !important;
+    overflow-y: auto !important; 
+    padding: 0.5rem !important; /* 縮小題目卡片的內邊距 */
+  }
+
+  .quiz-container .space-y-4 > * + * {
+    margin-top: 0.35rem !important; /* 縮小每個選項之間的上下間距 */
+  }
+
+  /* 答題按鈕高度壓縮，強迫下一題按鈕浮上來 */
   .option-btn {
     padding-top: 0.5rem !important;
     padding-bottom: 0.5rem !important;
@@ -315,22 +337,12 @@
     width: 100% !important;
   }
 
-  /* 5. 針對【選擇主題關卡畫面】微調：縮小陀螺圖片，釋放空間 */
-  /* 縮小三個關卡卡片裡面的陀螺零件預覽圖，讓第三個關卡直接露出來 */
+  /* ==========================================
+     5. 保留你原本的設定：【選擇主題關卡畫面】縮小陀螺圖片
+     ========================================== */
   .challenge-select-container img, 
   img[alt*="環"], img[alt*="輪盤"], img[alt*="軸底"] {
     width: 60px !important;
     height: 60px !important;
-  }
-  /* 答題畫面卡片高度微調，強迫下一題按鈕浮上來 */
-  .quiz-container .p-6, .quiz-container .glass-panel {
-    padding: 0.5rem !important; /* 縮小題目卡片的內邊距 */
-  }
-  .quiz-container .space-y-4 > * + * {
-    margin-top: 0.35rem !important; /* 縮小每個選項之間的上下間距 */
-  }
-  .option-btn {
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important; /* 讓選項按鈕本身變窄、變矮 */
   }
 }
