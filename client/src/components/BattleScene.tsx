@@ -355,11 +355,6 @@ const BattleScene: React.FC = () => {
                         {Math.round((gameState.correctAnswers / 21) * 100)}%
                       </p>
                     </div>
-                    <div className="w-px bg-slate-700" />
-                    <div className="text-center">
-                      <p className="text-slate-400 text-[10px] sm:text-xs mb-0.5">排名</p>
-                      <p className="text-base sm:text-lg font-bold text-blue-400">#{rank}</p>
-                    </div>
                   </motion.div>
 
                   {/* Slogan */}
