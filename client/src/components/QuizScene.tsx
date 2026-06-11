@@ -197,6 +197,7 @@ const QuizScene: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             className="glass-panel rounded-lg sm:rounded-xl p-3 sm:p-5 md:p-6 mb-3 sm:mb-4 border-slate-600/50"
+            style={{ paddingTop: '8px', paddingBottom: '8px', marginBottom: '8px' }}
           >
             <div className="flex items-start gap-2 sm:gap-3">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -231,6 +232,7 @@ const QuizScene: React.FC = () => {
                   onClick={() => handleAnswer(index)}
                   disabled={isAnswered}
                   className={`w-full p-2.5 sm:p-3.5 md:p-4 rounded-lg sm:rounded-xl border text-left transition-all duration-200 ${optionStyle} ${!isAnswered ? 'active:scale-[0.98]' : ''}`}
+                  style={{ paddingTop: '8px', paddingBottom: '8px', marginBottom: '2px' }}
                 >
                   <div className="flex items-start gap-2 sm:gap-3">
                     <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-xs sm:text-sm ${
@@ -302,6 +304,7 @@ const QuizScene: React.FC = () => {
                 <Button
                   onClick={handleNext}
                   className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-4 sm:py-5 rounded-lg sm:rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-200 active:scale-[0.97] text-sm sm:text-base"
+                  style={{ paddingTop: '10px', paddingBottom: '10px' }}
                 >
                   {isLastQuestion ? '完成挑戰 →' : '下一題 →'}
                 </Button>
