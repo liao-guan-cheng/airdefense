@@ -57,12 +57,12 @@ const BattleScene: React.FC = () => {
   // 儲存排行榜
   useEffect(() => {
     if (battlePhase === 2) {
-      const totalQ = gameState.correctAnswers + (21 - gameState.correctAnswers);
+      const totalQ = gameState.correctAnswers + (17 - gameState.correctAnswers);
       const entry = {
         name: playerName,
         score: gameState.score,
         correctCount: gameState.correctAnswers,
-        totalQuestions: 21,
+        totalQuestions: 17,
         averageTime: gameState.totalTimeSpent / Math.max(totalQ, 1),
         date: new Date().toLocaleDateString('zh-TW'),
       };
@@ -352,7 +352,7 @@ const BattleScene: React.FC = () => {
                     <div className="text-center">
                       <p className="text-slate-400 text-[10px] sm:text-xs mb-0.5">正確率</p>
                       <p className="text-base sm:text-lg font-bold text-green-400">
-                        {Math.round((gameState.correctAnswers / 21) * 100)}%
+                        {Math.round((gameState.correctAnswers / 17) * 100)}%
                       </p>
                     </div>
                   </motion.div>
